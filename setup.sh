@@ -56,9 +56,21 @@ while true; do
         ;;
     7)
         cd misp
-        IP=$(curl -s ip.me -4)
-        sed -i "s|BASE_URL=.*|BASE_URL='https://$IP:1443'|" template.env
-        cp template.env .env
+        # Show MISP Network Configuration menu
+        MISP_OPTION=$(whiptail --title "MISP Network Configuration" --menu "If you install T-Guard in your internal VM, then choose number 1. Private IP Address.\nIf in public VM or Cloud instances (such as Digital Ocean, Azure, etc.) then choose number 2. Public IP Address." 20 70 13 \
+                            "1" "Private IP Address" \
+                            "2" "Public IP Address" 3>&1 1>&2 2>&3)
+        
+        case $MISP_OPTION in
+        1)
+            IP=$(hostname -I | awk '{print $1}')
+            ;;
+        2)
+            IP=$(curl -s ip.me -4)
+            ;;
+        esac
+        
+        sed -i "s|BASE_URL=.*|BASE_URL='https://$IP:1443'|" .env
         sudo docker compose up -d
         ;;
     8)
