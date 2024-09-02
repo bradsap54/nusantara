@@ -39,10 +39,9 @@ while true; do
         ;;
     4)
         cd shuffle
-        mkdir shuffle-database
+        sudo docker compose up -d
         sudo chown -R 1000:1000 shuffle-database
         sudo swapoff -a
-        sudo docker compose up -d
         ;;
     5)
         cd iris-web
