@@ -39,8 +39,7 @@ while true; do
         ;;
     4)
         cd shuffle
-        sudo docker compose up -d
-        sudo chown -R 1000:1000 shuffle-database
+        sudo docker compose up -d && sudo chown -R 1000:1000 shuffle-database
         sudo swapoff -a
         sudo docker restart shuffle-opensearch
         ;;
