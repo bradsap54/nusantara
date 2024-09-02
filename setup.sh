@@ -39,7 +39,12 @@ while true; do
         ;;
     4)
         cd shuffle
-        sudo docker compose up -d && sudo chown -R 1000:1000 shuffle-database
+        sudo docker compose up -d 
+        while ! sudo docker compose ps | grep "shuffle-opensearch" | grep -q "Up"; do
+            echo "Waiting for shuffle-opensearch container to start..."
+            sleep 5
+        done
+        sudo chown -R 1000:1000 shuffle-database
         sudo swapoff -a
         sudo docker restart shuffle-opensearch
         ;;
