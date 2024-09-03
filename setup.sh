@@ -81,7 +81,7 @@ while true; do
         sudo cp wazuh/custom-integrations/custom-iris.py /var/lib/docker/volumes/wazuh_wazuh_integrations/_data/custom-iris.py
         sudo docker exec -ti wazuh-wazuh.manager-1 chown root:wazuh /var/ossec/integrations/custom-iris.py
         sudo docker exec -ti wazuh-wazuh.manager-1 chmod 750 /var/ossec/integrations/custom-iris.py
-        sudo docker exec -ti wazuh-wazuh.manager-1 yum update -y
+        sudo docker exec -ti wazuh-wazuh.manager-1 yum update amazonlinux-release -y
         sudo docker exec -ti wazuh-wazuh.manager-1 yum install python3-pip -y
         sudo docker exec -ti wazuh-wazuh.manager-1 pip3 install requests
 
