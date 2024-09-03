@@ -42,7 +42,7 @@ services:
       start_period: 30s
 
   misp-core:
-    image: ghcr.io/misp/misp-docker/misp-core:v2.4.196
+    image: ghcr.io/misp/misp-docker/misp-core:${CORE_TAG}
     cap_add:
       - CAP_AUDIT_WRITE
     build:
@@ -181,7 +181,7 @@ services:
       - "PHP_MAX_INPUT_TIME:${PHP_MAX_INPUT_TIME:-300}"
   
   misp-modules:
-    image: ghcr.io/misp/misp-docker/misp-modules:v2.4.196
+    image: ghcr.io/misp/misp-docker/misp-modules:${MODULES_TAG}
     build:
       context: modules/.
       args:
