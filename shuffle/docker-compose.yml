@@ -132,6 +132,8 @@ services:
 networks:
   shuffle:
     driver: bridge
+  shared-network:
+    external: true
 
     # uncomment to set MTU for swarm mode.
     # MTU should be whatever is your host's preferred MTU is.

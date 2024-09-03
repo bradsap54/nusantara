@@ -65,6 +65,7 @@ services:
     networks:
       - iris_backend
       - iris_frontend
+      - shared-network
 
   worker:
     container_name: iriswebapp_worker
@@ -95,6 +96,7 @@ services:
       - IRIS_WORKER
     networks:
       - iris_backend
+      - shared-network
 
   nginx:
     container_name: iriswebapp_nginx
@@ -108,6 +110,7 @@ services:
       - IRIS_AUTHENTICATION_TYPE
     networks:
       - iris_frontend
+      - shared-network
     ports:
       - "${INTERFACE_HTTPS_PORT:-8443}:${INTERFACE_HTTPS_PORT:-8443}"
     volumes:
@@ -127,3 +130,5 @@ networks:
     name: iris_backend
   iris_frontend:
     name: iris_frontend
+  shared-network:
+    external: true
