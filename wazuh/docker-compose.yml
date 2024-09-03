@@ -7,8 +7,8 @@ services:
     hostname: wazuh.manager
     restart: always
     networks:
-      - shared-network
       - wazuh
+      - shared-network
     ulimits:
       memlock:
         soft: -1
@@ -122,8 +122,8 @@ volumes:
   wazuh-dashboard-config:
   wazuh-dashboard-custom:
 
-  networks:
-    shared-network:
-      external: true
-    wazuh:
-      driver: bridge
+networks:
+  shared-network:
+    external: true
+  wazuh:
+    driver: bridge
