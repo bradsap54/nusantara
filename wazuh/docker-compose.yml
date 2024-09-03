@@ -113,3 +113,9 @@ volumes:
   wazuh-indexer-data:
   wazuh-dashboard-config:
   wazuh-dashboard-custom:
+
+  networks:
+  shared-network:
+    external: true
+  wazuh:
+    driver: bridge
