@@ -73,7 +73,8 @@ while true; do
             ;;
         esac
         
-        sed -i "s|BASE_URL=.*|BASE_URL='https://$IP:1443'|" .env
+        sed -i "s|BASE_URL=.*|BASE_URL='https://$IP:1443'|" template.env
+        cp template.env .env
         sudo docker compose up -d
         ;;
     8)
