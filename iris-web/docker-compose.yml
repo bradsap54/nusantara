@@ -25,25 +25,25 @@ services:
     extends:
       file: docker-compose.base.yml
       service: db
-    image: ghcr.io/dfir-iris/iriswebapp_db:v2.4.12
+    image: ghcr.io/dfir-iris/iriswebapp_db:v2.4.19
 
   app:
     extends:
       file: docker-compose.base.yml
       service: app
-    image: ghcr.io/dfir-iris/iriswebapp_app:v2.4.12
+    image: ghcr.io/dfir-iris/iriswebapp_app:v2.4.19
 
   worker:
     extends:
       file: docker-compose.base.yml
       service: worker
-    image: ghcr.io/dfir-iris/iriswebapp_app:v2.4.12
+    image: ghcr.io/dfir-iris/iriswebapp_app:v2.4.19
 
   nginx:
     extends:
       file: docker-compose.base.yml
       service: nginx
-    image: ghcr.io/dfir-iris/iriswebapp_nginx:v2.4.12
+    image: ghcr.io/dfir-iris/iriswebapp_nginx:v2.4.19
 
 volumes:
   iris-downloads:
