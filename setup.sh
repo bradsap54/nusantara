@@ -72,7 +72,7 @@ while true; do
         read agent_name
         wazuh_version=$(sudo docker images --format '{{.Repository}}:{{.Tag}}' | grep '^wazuh/wazuh-dashboard:' | cut -d':' -f2)
         wget https://packages.wazuh.com/4.x/apt/pool/main/w/wazuh-agent/wazuh-agent_${wazuh_version}-1_amd64.deb \
-        && sudo WAZUH_MANAGER='$wazuh_manager' WAZUH_AGENT_NAME='$agent_name' dpkg -i ./wazuh-agent_${wazuh_version}-1_amd64.deb
+        && sudo WAZUH_MANAGER="$wazuh_manager" WAZUH_AGENT_NAME="$agent_name" dpkg -i ./wazuh-agent_${wazuh_version}-1_amd64.deb
         sudo systemctl daemon-reload
         sudo systemctl enable wazuh-agent
         sudo systemctl start wazuh-agent
