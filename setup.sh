@@ -90,6 +90,8 @@ while true; do
         sudo docker compose up -d
         ;;
     6)
+        cd misp
+        
         # Show MISP Network Configuration menu
         MISP_OPTION=$(whiptail --title "MISP Network Configuration" --menu "If you install T-Guard on:\n- Private accessed VM (PC/Desktop), choose: 1. Private IP Address\n- Public accessed VM or Cloud instances (GCP, Azure, etc.), choose: 2. Public IP Address" 20 95 5 \
                             "1" "Private IP Address" \
